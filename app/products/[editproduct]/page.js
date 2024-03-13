@@ -26,6 +26,17 @@ const Page = ({ params }) => {
         setCategory(result.category)
     }
 
+    const updateProduct = async () => {
+        let productData = await fetch(`http://localhost:3000/api/products/${productId}`, {
+            method: "PUT",
+            body: JSON.stringify({ name, price, color, company, category })
+        })
+        productData = await productData.json();
+        if (productData.success) {
+            alert('Product updated successfully')
+        }
+    }
+
     return (
         <div>
             <h1>Update product page</h1><br />
@@ -44,7 +55,7 @@ const Page = ({ params }) => {
             <input type='text' placeholder='Enter product category' value={category} onChange={e => setCategory(e.target.value)} />
             <br />
             <br />
-            <button>Update Product</button>
+            <button onClick={updateProduct}>Update Product</button>
             <br />
             <br />
             <Link href={'/products'}>Go back</Link>
