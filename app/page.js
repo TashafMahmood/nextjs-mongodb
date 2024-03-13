@@ -5,7 +5,8 @@ export default function Home() {
   return (
     <main>
       <h1>Mongo DB Course</h1><br />
-      <Link href={'/add-product'}>Add Product</Link>
+      <Link href={'/add-product'}>Add Product</Link><br />
+      <Link href={'/products'}>Products</Link>
     </main>
   )
 }
