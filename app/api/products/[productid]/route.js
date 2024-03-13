@@ -12,3 +12,11 @@ export async function PUT(request, content) {
 
     return NextResponse.json({ result: data })
 }
+
+export async function GET(request, content) {
+    const id = content.params.productid;
+    const record = { _id: id }
+    await mongoose.connect(connectionString)
+    const result = await Product.findById(record)
+    return NextResponse.json({ result, success: true })
+}

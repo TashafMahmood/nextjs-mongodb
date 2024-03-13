@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 
 export async function getProducts() {
@@ -20,6 +21,7 @@ const Page = async () => {
                         <th>Company</th>
                         <th>Color</th>
                         <th>Category</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,6 +34,7 @@ const Page = async () => {
                                     <td>{product.company}</td>
                                     <td>{product.color}</td>
                                     <td>{product.category}</td>
+                                    <td><Link href={`/products/${product._id}`}>Edit</Link></td>
                                 </tr></>
                         ))
                     }
