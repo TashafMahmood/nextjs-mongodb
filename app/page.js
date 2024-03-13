@@ -6,7 +6,8 @@ export default function Home() {
     <main>
       <h1>Mongo DB Course</h1><br />
       <Link href={'/add-product'}>Add Product</Link><br />
-      <Link href={'/products'}>Products</Link>
+      <Link href={'/products'}>Products</Link><br/>
+      <Link href={'/image-upload'}>Image Upload</Link>
     </main>
   )
 }
