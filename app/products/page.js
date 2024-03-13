@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import React from 'react'
+import DeleteProduct from '../lib/DeleteProduct';
 
 export async function getProducts() {
-    let products = await fetch('http://localhost:3000/api/products')
+    let products = await fetch('http://localhost:3000/api/products', { cache: "no-cache" })
     products = await products.json()
     return products.data;
 }
@@ -21,7 +22,7 @@ const Page = async () => {
                         <th>Company</th>
                         <th>Color</th>
                         <th>Category</th>
-                        <th>Action</th>
+                        <th colSpan={2}>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,6 +36,7 @@ const Page = async () => {
                                     <td>{product.color}</td>
                                     <td>{product.category}</td>
                                     <td><Link href={`/products/${product._id}`}>Edit</Link></td>
+                                    <td><DeleteProduct id={product._id} /></td>
                                 </tr></>
                         ))
                     }
